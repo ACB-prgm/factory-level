@@ -3,11 +3,12 @@
 [ext_resource path="res://scenes/Explorer.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/actors/player.png" type="Texture" id=2]
 [ext_resource path="res://scripts/classes/nodes/StateMachine.gd" type="Script" id=3]
-[ext_resource path="res://scripts/classes/nodes/State.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Normal.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Climb.gd" type="Script" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 11.5 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.0
+height = 9.0
 
 [node name="Explorer" type="KinematicBody2D"]
 collision_layer = 4
@@ -36,13 +37,14 @@ limit_right = 640
 limit_bottom = 500
 editor_draw_limits = true
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="States" type="Node" parent="."]
 script = ExtResource( 3 )
 root_node = NodePath("..")
 paused = false
 
-[node name="Normal" type="Node" parent="StateMachine"]
+[node name="Normal" type="Node" parent="States"]
 script = ExtResource( 4 )
 
-[node name="Climb" type="Node" parent="StateMachine"]
+[node name="Climb" type="Node" parent="States"]
 script = ExtResource( 5 )
+ladder_climb_speed = 50.0
