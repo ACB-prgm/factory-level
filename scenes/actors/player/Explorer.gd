@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		assert(state_return == OK)
 	
 	var snap_vector := Vector2.UP * 10 if velocity.y > 0 else Vector2()
-	velocity = move_and_slide_with_snap(velocity, snap_vector, Vector2.UP)
+	velocity = move_and_slide_with_snap(velocity, snap_vector, Vector2.UP, true, 4, 0.785398, true)
 	
 	if direction.y < 0.0:
 		if is_on_floor():
