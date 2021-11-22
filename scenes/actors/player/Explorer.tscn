@@ -10,7 +10,7 @@
 radius = 7.0
 height = 9.0
 
-[node name="Explorer" type="KinematicBody2D"]
+[node name="Explorer" type="KinematicBody2D" groups=["player"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource( 5 )
@@ -25,6 +25,7 @@ disabled = null
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color( 0.0509804, 0.329412, 0.992157, 1 )
 position = Vector2( 0, 4.5 )
 shape = SubResource( 1 )
 
